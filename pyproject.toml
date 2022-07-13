@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel", "numpy"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ocr_weighted_levenhstein"
+version = "1.0.0"
+authors = [
+  { name="Joan Capell", email="author@example.com" },
+]
+description = "Weights for levenshtein distance based on ocr character similarity"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/zas97/ocr_weighted_levenshtein"
+"Bug Tracker" = "https://github.com/zas97/ocr_weighted_levenshtein/issues"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"] 
+include = ["ocr_weighted_levenhstein*", "ocr_weighted_levenhstein/data/*.npy"]
+
+[tool.setuptools.package-data]
+ocr_weighted_levenhstein = ["data/*.npy"]
