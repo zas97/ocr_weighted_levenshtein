@@ -1,0 +1,24 @@
+# Ocr weighted Levenshtein distance
+
+## Getting started
+
+To install the library :
+
+    pip install ocr-weighted-levenshtein weighted-levenshtein
+
+### Usage
+
+```python
+    import ocr_weighted_levenhstein
+    from weighted_levenshtein import lev
+
+    leven_params = ocr_weighted_levenhstein.get_distances_params()
+
+    print(lev("rat", "cat", **leven_params)) ## prints 1.16
+    print(lev("eat", "cat", **leven_params)) ## prints 0.57
+    print(lev("Bat", "8at", **leven_params)) ## prints 0.46
+    print(lev("hello", "hell0", **leven_params)) ## prints 0.13
+    print(lev("What", "what", **leven_params)) ## prints 0.26
+    print(lev("hello", "helloi", **leven_params)) ## prints 0.24
+    print(lev("hello", "helloH", **leven_params)) ## prints 0.83
+``` 
