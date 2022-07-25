@@ -23,10 +23,10 @@ def save_distances2file(folder, insert_costs, delete_costs, substitute_costs):
     np.save(folder + "/subs", substitute_costs)
     
 
-def distances2numpy_format(op2distance):
-    insert_costs = np.ones(128, dtype=np.float64)
-    delete_costs = np.ones(128, dtype=np.float64)
-    substitute_costs = np.ones((128, 128), dtype=np.float64)
+def distances2numpy_format(op2distance, default_distance=1.5):
+    insert_costs = np.ones(128, dtype=np.float64) * default_distance
+    delete_costs = np.ones(128, dtype=np.float64) * default_distance
+    substitute_costs = np.ones((128, 128), dtype=np.float64) * default_distance
     
     for op, d in op2distance.items():
         
