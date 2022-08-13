@@ -36,7 +36,7 @@ print(lev("hello", "helloH", **leven_params)) ## prints 0.83
 
 ## Use Cases
 
-The Levenshtein distance is often used to search words in ocrised texts in fault tolerant manner. For example if we are searching for the word THEATRE in an image with text the ocr will sometimes recognize words like THEATRF or T4EATRE. To match also this words a common tactic is to search any word that is at a Levenshtein distance 1 from THEATRE. However, in this use case not all edit operation should have the same cost, the word THEATRF should be closer to the word THEATRW since the ocr is more likely to confuse an F from E than a W from an E.
+The Levenshtein distance is often used to search words in ocrised texts in fault tolerant manner. For example if we are searching for the word THEATRE in an image with text, the ocr will sometimes recognize words like THEATRF or T4EATRE. To match also this words a common tactic is to search any word that is at a Levenshtein distance 1 from THEATRE. However, in this use case not all edit operation should have the same cost, the word THEATRF should be closer to the word THEATRW since the ocr is more likely to confuse an F from E than a W from an E.
 
 
 
