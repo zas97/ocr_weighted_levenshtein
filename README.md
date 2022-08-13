@@ -2,28 +2,36 @@
 
 ## Getting started
 
-To install the library :
+Install the weighted_levenshtein library :
 
-    pip install ocr-weighted-levenshtein weighted-levenshtein
+    pip install weighted-levenshtein
+
+Download json with the params for the weighted levenshtein from https://github.com/zas97/ocr_weighted_levenshtein/blob/main/params_weighted_leven.json
 
 ### Usage
 
 ```python
-    import ocr_weighted_levenhstein
-    from weighted_levenshtein import lev
+import json
+from weighted_levenshtein import lev
+import numpy as np
 
-    leven_params = ocr_weighted_levenhstein.get_distances_params()
+with open("../params_weighted_leven.json", "r") as f:
+    leven_params = json.load(f)
+    for k in params.keys():
+        leven_params[k] = np.array(leven_params[k])
+    leven_params
 
-    ## The order of parameters matter
-    # lev("word_in_ocr", "word_to_match", **leven_params)
+## Order of the words to compare matter matter :
+## To get the correct distance use 
+# lev("word_in_ocr", "word_to_match", **leven_params)
 
-    print(lev("rat", "cat", **leven_params)) ## prints 1.16
-    print(lev("eat", "cat", **leven_params)) ## prints 0.57
-    print(lev("Bat", "8at", **leven_params)) ## prints 0.46
-    print(lev("hello", "hell0", **leven_params)) ## prints 0.13
-    print(lev("What", "what", **leven_params)) ## prints 0.26
-    print(lev("hello", "helloi", **leven_params)) ## prints 0.24
-    print(lev("hello", "helloH", **leven_params)) ## prints 0.83
+print(lev("rat", "cat", **leven_params)) ## prints 1.16
+print(lev("eat", "cat", **leven_params)) ## prints 0.57
+print(lev("Bat", "8at", **leven_params)) ## prints 0.46
+print(lev("hello", "hell0", **leven_params)) ## prints 0.13
+print(lev("What", "what", **leven_params)) ## prints 0.26
+print(lev("hello", "helloi", **leven_params)) ## prints 0.24
+print(lev("hello", "helloH", **leven_params)) ## prints 0.83
 ``` 
 
 ## Use Cases
