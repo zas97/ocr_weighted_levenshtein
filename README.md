@@ -17,7 +17,7 @@ import numpy as np
 
 with open("../params_weighted_leven.json", "r") as f:
     leven_params = json.load(f)
-    for k in params.keys():
+    for k in leven_params.keys():
         leven_params[k] = np.array(leven_params[k])
     leven_params
 
